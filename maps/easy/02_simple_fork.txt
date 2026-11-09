@@ -12,3 +12,6 @@ connection: junction-path_a
 connection: junction-path_b
 connection: path_a-goal
 connection: path_b-goal
+
+
+#wytyczyc wszystkie mozliwe sciezki, posegregowac je od najszybszej do najwolniejszej i wysylac wszsytkimi jednoczesnie, jak skonczy robic pierwsza pierwszy ron to wysylamy nia nastepnego itd.

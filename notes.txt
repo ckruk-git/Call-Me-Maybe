@@ -1,0 +1,1773 @@
+easy 1:
+
+ py .\main.py
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+start -> ['waypoint1']
+goal -> ['waypoint2']
+waypoint1 -> ['start', 'waypoint2']
+waypoint2 -> ['waypoint1', 'goal']
+Koszt: 3.0, ścieżka: ['start', 'waypoint1', 'waypoint2', 'goal']
+
+=== Tura 1 ===
+  D1-waypoint1
+  Dostarczone: 0/2
+
+=== Tura 2 ===
+  D1-waypoint2
+  D2-waypoint1
+  Dostarczone: 0/2
+
+=== Tura 3 ===
+  D1-goal
+  D2-waypoint2
+  Dostarczone: 1/2
+
+=== Tura 4 ===
+  D2-goal
+  Dostarczone: 2/2
+
+  easy 2:
+
+easy 2:
+
+.\main.py
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+start -> ['junction']
+goal -> ['path_a', 'path_b']
+junction -> ['start', 'path_a', 'path_b']
+path_a -> ['junction', 'goal']
+path_b -> ['junction', 'goal']
+Koszt: 3.0, ścieżka: ['start', 'junction', 'path_a', 'goal']
+
+=== Tura 1 ===
+  D1-junction
+  D2-junction
+  Dostarczone: 0/4
+
+=== Tura 2 ===
+  D1-path_a
+  D2-path_b
+  D3-junction
+  D4-junction
+  Dostarczone: 0/4
+
+=== Tura 3 ===
+  D1-goal
+  D2-goal
+  D3-path_a
+  D4-path_b
+  Dostarczone: 2/4
+
+=== Tura 4 ===
+  D3-goal
+  D4-goal
+  Dostarczone: 4/4
+
+  easy 3:
+
+  start -> ['bottleneck']
+goal -> ['wide_area']
+bottleneck -> ['start', 'wide_area']
+wide_area -> ['bottleneck', 'goal']
+Koszt: 3.0, ścieżka: ['start', 'bottleneck', 'wide_area', 'goal']
+
+=== Tura 1 ===
+  D1-bottleneck
+  D2-bottleneck
+  Dostarczone: 0/4
+
+=== Tura 2 ===
+  D1-wide_area
+  D2-wide_area
+  D3-bottleneck
+  D4-bottleneck
+  Dostarczone: 0/4
+
+=== Tura 3 ===
+  D1-goal
+  D2-goal
+  D3-wide_area
+  D4-wide_area
+  Dostarczone: 2/4
+
+=== Tura 4 ===
+  D3-goal
+  D4-goal
+  Dostarczone: 4/4
+
+
+chwilowe zawieszenie (brak odpowiedzi)
+
+medium 1:
+
+start -> ['junction']
+goal -> ['intermediate']
+junction -> ['start', 'dead_end', 'correct_path']
+dead_end -> ['junction']
+correct_path -> ['junction', 'intermediate']
+intermediate -> ['correct_path', 'goal']
+Koszt: 4.0, ścieżka: ['start', 'junction', 'correct_path', 'intermediate', 'goal']
+
+=== Tura 1 ===
+  D1-junction
+  D2-junction
+  Dostarczone: 0/5
+
+=== Tura 2 ===
+  D1-correct_path
+  D3-junction
+  Dostarczone: 0/5
+
+=== Tura 3 ===
+  D1-intermediate
+  D2-correct_path
+  D4-junction
+  Dostarczone: 0/5
+
+=== Tura 4 ===
+  D1-goal
+  D2-intermediate
+  D3-correct_path
+  D5-junction
+  Dostarczone: 1/5
+
+=== Tura 5 ===
+  D2-goal
+  D3-intermediate
+  D4-correct_path
+  Dostarczone: 2/5
+
+=== Tura 6 ===
+  D3-goal
+  D4-intermediate
+  D5-correct_path
+  Dostarczone: 3/5
+
+=== Tura 7 ===
+  D4-goal
+  D5-intermediate
+  Dostarczone: 4/5
+
+=== Tura 8 ===
+  D5-goal
+  Dostarczone: 5/5
+
+  medium 2:
+
+  start -> ['loop_a']
+goal -> ['exit_point']
+loop_a -> ['start', 'loop_b', 'loop_d']
+loop_b -> ['loop_a', 'loop_c', 'exit_point']
+loop_c -> ['loop_b', 'loop_d']
+loop_d -> ['loop_c', 'loop_a']
+exit_point -> ['loop_b', 'goal']
+Koszt: 5.0, ścieżka: ['start', 'loop_a', 'loop_b', 'exit_point', 'goal']
+
+=== Tura 1 ===
+  D1-loop_a
+  D2-loop_a
+  Dostarczone: 0/6
+
+=== Tura 2 ===
+  D1-loop_b
+  D2-loop_d
+  D3-loop_a
+  D4-loop_a
+  Dostarczone: 0/6
+
+=== Tura 3 ===
+  D1-loop_b-exit_point
+  D2-loop_c
+  D3-loop_b
+  D4-loop_d
+  D5-loop_a
+  D6-loop_a
+  Dostarczone: 0/6
+
+=== Tura 4 ===
+  D1-loop_b-exit_point
+  D2-loop_b
+  D4-loop_c
+  D6-loop_d
+  Dostarczone: 0/6
+
+=== Tura 5 ===
+  D1-exit_point
+  D6-loop_c
+  Dostarczone: 0/6
+
+=== Tura 6 ===
+  D1-goal
+  D2-loop_b-exit_point
+  D4-loop_b
+  Dostarczone: 1/6
+
+=== Tura 7 ===
+  D2-loop_b-exit_point
+  Dostarczone: 1/6
+
+=== Tura 8 ===
+  D2-exit_point
+  Dostarczone: 1/6
+
+=== Tura 9 ===
+  D2-goal
+  D3-loop_b-exit_point
+  D5-loop_b
+  Dostarczone: 2/6
+
+=== Tura 10 ===
+  D3-loop_b-exit_point
+  Dostarczone: 2/6
+
+=== Tura 11 ===
+  D3-exit_point
+  Dostarczone: 2/6
+
+=== Tura 12 ===
+  D3-goal
+  D4-loop_b-exit_point
+  D6-loop_b
+  Dostarczone: 3/6
+
+=== Tura 13 ===
+  D4-loop_b-exit_point
+  Dostarczone: 3/6
+
+=== Tura 14 ===
+  D4-exit_point
+  Dostarczone: 3/6
+
+=== Tura 15 ===
+  D4-goal
+  D5-loop_b-exit_point
+  Dostarczone: 4/6
+
+=== Tura 16 ===
+  D5-loop_b-exit_point
+  Dostarczone: 4/6
+
+=== Tura 17 ===
+  D5-exit_point
+  Dostarczone: 4/6
+
+=== Tura 18 ===
+  D5-goal
+  D6-loop_b-exit_point
+  Dostarczone: 5/6
+
+=== Tura 19 ===
+  D6-loop_b-exit_point
+  Dostarczone: 5/6
+
+=== Tura 20 ===
+  D6-exit_point
+  Dostarczone: 5/6
+
+=== Tura 21 ===
+  D6-goal
+  Dostarczone: 6/6
+
+  chwilowe zwioszenie an koncu turn 3
+
+  medium 3:
+
+ start -> ['slow_path1', 'fast_junction']
+goal -> ['merge_point']
+slow_path1 -> ['start', 'slow_path2']
+slow_path2 -> ['slow_path1', 'merge_point']
+fast_junction -> ['start', 'fast_path']
+fast_path -> ['fast_junction', 'merge_point']
+merge_point -> ['slow_path2', 'fast_path', 'goal']
+Koszt: 3.8, ścieżka: ['start', 'fast_junction', 'fast_path', 'merge_point', 'goal']
+
+=== Tura 1 ===
+  D1-fast_junction
+  D2-start-slow_path1
+  Dostarczone: 0/5
+
+=== Tura 2 ===
+  D1-fast_path
+  D2-start-slow_path1
+  D3-fast_junction
+  Dostarczone: 0/5
+
+=== Tura 3 ===
+  D1-merge_point
+  D2-slow_path1
+  D3-fast_path
+  D5-fast_junction
+  Dostarczone: 0/5
+
+=== Tura 4 ===
+  D1-goal
+  D2-slow_path2
+  D3-merge_point
+  D4-start-slow_path1
+  D5-fast_path
+  Dostarczone: 1/5
+
+=== Tura 5 ===
+  D2-merge_point
+  D3-goal
+  D4-start-slow_path1
+  D5-merge_point
+  Dostarczone: 2/5
+
+=== Tura 6 ===
+  D2-goal
+  D4-slow_path1
+  D5-goal
+  Dostarczone: 4/5
+
+=== Tura 7 ===
+  D4-slow_path2
+  Dostarczone: 4/5
+
+=== Tura 8 ===
+  D4-merge_point
+  Dostarczone: 4/5
+
+=== Tura 9 ===
+  D4-goal
+  Dostarczone: 5/5
+
+
+  hard1 :
+
+  start -> ['maze_a1', 'dead_end1']
+goal -> ['final_stretch1', 'final_stretch2', 'final_stretch3']
+maze_a1 -> ['start', 'maze_a2', 'maze_b1']
+maze_a2 -> ['maze_a1', 'maze_c2', 'dead_end3', 'trap_loop1', 'maze_b2']
+maze_b1 -> ['maze_a1', 'maze_b2', 'maze_c1']
+maze_b2 -> ['maze_b1', 'maze_c2', 'maze_c1', 'maze_a2']
+maze_c1 -> ['trap_loop2', 'maze_b1', 'maze_b2']
+maze_c2 -> ['maze_b2', 'maze_a2', 'bottleneck']
+dead_end1 -> ['start', 'dead_end2']
+dead_end2 -> ['dead_end1']
+dead_end3 -> ['maze_a2']
+trap_loop1 -> ['maze_a2', 'trap_loop2']
+trap_loop2 -> ['trap_loop1', 'maze_c1']
+bottleneck -> ['maze_c2', 'final_stretch1', 'final_stretch2', 'final_stretch3']
+final_stretch1 -> ['bottleneck', 'goal']
+final_stretch2 -> ['bottleneck', 'goal']
+final_stretch3 -> ['bottleneck', 'goal']
+Koszt: 5.9, ścieżka: ['start', 'maze_a1', 'maze_a2', 'maze_c2', 'bottleneck', 'final_stretch1', 'goal']
+
+=== Tura 1 ===
+  D1-maze_a1
+  D2-maze_a1
+  Dostarczone: 0/8
+
+=== Tura 2 ===
+  D1-maze_a2
+  D2-maze_b1
+  D3-maze_a1
+  D4-maze_a1
+  Dostarczone: 0/8
+
+=== Tura 3 ===
+  D1-maze_c2
+  D2-maze_b2
+  D3-maze_a2
+  D5-maze_a1
+  Dostarczone: 0/8
+
+=== Tura 4 ===
+  D1-bottleneck
+  D2-maze_c2
+  D3-maze_b2
+  D4-maze_a2
+  D6-maze_a1
+  Dostarczone: 0/8
+
+=== Tura 5 ===
+  D1-final_stretch1
+  D2-bottleneck
+  D3-maze_c2
+  D4-maze_c2
+  D5-maze_a2
+  D6-maze_b1
+  D7-maze_a1
+  D8-maze_a1
+  Dostarczone: 0/8
+
+=== Tura 6 ===
+  D1-goal
+  D2-final_stretch1
+  D3-bottleneck
+  D5-maze_c2
+  D6-maze_b2
+  D7-maze_a2
+  Dostarczone: 1/8
+
+=== Tura 7 ===
+  D2-goal
+  D3-final_stretch1
+  D4-bottleneck
+  D6-maze_c2
+  D7-maze_b2
+  D8-maze_a2
+  Dostarczone: 2/8
+
+=== Tura 8 ===
+  D3-goal
+  D4-final_stretch2
+  D5-bottleneck
+  D7-maze_c2
+  Dostarczone: 3/8
+
+=== Tura 9 ===
+  D4-goal
+  D5-final_stretch1
+  D6-bottleneck
+  D8-maze_c2
+  Dostarczone: 4/8
+
+=== Tura 10 ===
+  D5-goal
+  D6-final_stretch1
+  D7-bottleneck
+  Dostarczone: 5/8
+
+=== Tura 11 ===
+  D6-goal
+  D7-final_stretch1
+  D8-bottleneck
+  Dostarczone: 6/8
+
+=== Tura 12 ===
+  D7-goal
+  D8-final_stretch2
+  Dostarczone: 7/8
+
+=== Tura 13 ===
+  D8-goal
+  Dostarczone: 8/8
+
+chwilowe zawieszenie na koncu tury 5
+
+  hard 2:
+
+
+turn 3 i turn 4, 7, 8 zawieszenie na koniec oraz brak polaczen pomiedzy niektorymi hubami
+
+
+start -> ['gate1', 'gate2', 'gate3']
+goal -> ['final_bottleneck']
+gate1 -> ['start', 'gate2', 'waiting_area1']
+gate2 -> ['start', 'gate1', 'gate3', 'waiting_area2']
+gate3 -> ['start', 'gate2', 'waiting_area3', 'restricted_tunnel1']
+waiting_area1 -> ['gate1', 'waiting_area2', 'priority_bypass1']
+waiting_area2 -> ['gate2', 'waiting_area1', 'waiting_area3', 'priority_bypass2']
+waiting_area3 -> ['gate3', 'waiting_area2', 'convergence']
+restricted_tunnel1 -> ['gate3', 'restricted_tunnel2']
+restricted_tunnel2 -> ['restricted_tunnel1', 'restricted_tunnel3']
+restricted_tunnel3 -> ['restricted_tunnel2', 'convergence']
+priority_bypass1 -> ['waiting_area1', 'priority_bypass2']
+priority_bypass2 -> ['waiting_area2', 'priority_bypass1', 'convergence']
+convergence -> ['restricted_tunnel3', 'priority_bypass2', 'final_bottleneck', 'waiting_area3']
+final_bottleneck -> ['convergence', 'goal']
+Koszt: 5.0, ścieżka: ['start', 'gate3', 'waiting_area3', 'convergence', 'final_bottleneck', 'goal']
+
+=== Tura 1 ===
+  D1-gate3
+  D2-gate2
+  Dostarczone: 0/12
+
+=== Tura 2 ===
+  D1-waiting_area3
+  D2-waiting_area2
+  D3-gate3
+  D4-gate2
+  Dostarczone: 0/12
+
+=== Tura 3 ===
+  D1-convergence
+  D2-priority_bypass2
+  D3-waiting_area3
+  D4-waiting_area2
+  D5-gate3
+  D6-gate2
+  Dostarczone: 0/12
+
+=== Tura 4 ===
+  D1-final_bottleneck
+  D2-convergence
+  D3-convergence
+  D4-priority_bypass2
+  D5-waiting_area3
+  D6-waiting_area2
+  D7-gate3
+  D8-gate2
+  Dostarczone: 0/12
+
+=== Tura 5 ===
+  D1-goal
+  D2-final_bottleneck
+  D3-final_bottleneck
+  D4-convergence
+  D5-convergence
+  D6-priority_bypass2
+  D7-waiting_area3
+  D8-waiting_area2
+  D9-gate3
+  D10-gate2
+  Dostarczone: 1/12
+
+=== Tura 6 ===
+  D2-goal
+  D4-final_bottleneck
+  D5-final_bottleneck
+  D6-convergence
+  D7-convergence
+  D8-priority_bypass2
+  D9-waiting_area3
+  D10-waiting_area2
+  D11-gate3
+  D12-gate2
+  Dostarczone: 2/12
+
+=== Tura 7 ===
+  D3-goal
+  D6-final_bottleneck
+  D8-convergence
+  D9-convergence
+  D10-priority_bypass2
+  D11-waiting_area3
+  D12-waiting_area2
+  Dostarczone: 3/12
+
+=== Tura 8 ===
+  D4-goal
+  D7-final_bottleneck
+  D10-convergence
+  D11-convergence
+  D12-priority_bypass2
+  Dostarczone: 4/12
+
+=== Tura 9 ===
+  D5-goal
+  D8-final_bottleneck
+  D12-convergence
+  Dostarczone: 5/12
+
+=== Tura 10 ===
+  D6-goal
+  D9-final_bottleneck
+  Dostarczone: 6/12
+
+=== Tura 11 ===
+  D7-goal
+  D10-final_bottleneck
+  Dostarczone: 7/12
+
+=== Tura 12 ===
+  D8-goal
+  D11-final_bottleneck
+  Dostarczone: 8/12
+
+=== Tura 13 ===
+  D9-goal
+  D12-final_bottleneck
+  Dostarczone: 9/12
+
+=== Tura 14 ===
+  D10-goal
+  Dostarczone: 10/12
+
+=== Tura 15 ===
+  D11-goal
+  Dostarczone: 11/12
+
+=== Tura 16 ===
+  D12-goal
+  Dostarczone: 12/12
+
+hard 3:
+
+start -> ['dist_gate1', 'dist_gate2', 'dist_gate3']
+goal -> ['final_gate3']
+dist_gate1 -> ['start', 'maze_correct']
+dist_gate2 -> ['start', 'maze_trap1']
+dist_gate3 -> ['start', 'maze_loop1']
+maze_trap1 -> ['dist_gate2', 'maze_trap2']
+maze_trap2 -> ['maze_trap1']
+maze_loop1 -> ['dist_gate3', 'maze_loop2', 'maze_loop4']
+maze_loop2 -> ['maze_loop1', 'maze_loop3', 'maze_correct']
+maze_loop3 -> ['maze_loop2', 'maze_loop4']
+maze_loop4 -> ['maze_loop3', 'maze_loop1']
+maze_correct -> ['dist_gate1', 'maze_loop2', 'bottleneck1']
+bottleneck1 -> ['maze_correct', 'bottleneck2', 'overflow1']
+bottleneck2 -> ['bottleneck1', 'overflow2', 'priority_hub']
+overflow1 -> ['bottleneck1', 'overflow2']
+overflow2 -> ['overflow1', 'bottleneck2', 'conv_normal1']
+priority_hub -> ['bottleneck2', 'priority_trap1', 'priority_correct', 'conv_priority1']
+priority_trap1 -> ['priority_hub', 'priority_trap2']
+priority_trap2 -> ['priority_trap1', 'priority_dead_end']
+priority_dead_end -> ['priority_trap2']
+priority_correct -> ['priority_hub', 'conv_restricted1', 'conv_normal1', 'conv_priority1']
+conv_restricted1 -> ['priority_correct', 'conv_restricted2']
+conv_restricted2 -> ['conv_restricted1', 'final_merge']
+conv_normal1 -> ['priority_correct', 'conv_normal2', 'overflow2']
+conv_normal2 -> ['conv_normal1', 'final_merge']
+conv_priority1 -> ['priority_correct', 'conv_priority2', 'priority_hub']
+conv_priority2 -> ['conv_priority1', 'final_merge']
+final_merge -> ['conv_restricted2', 'conv_normal2', 'conv_priority2', 'final_gate1']
+final_gate1 -> ['final_merge', 'final_gate2']
+final_gate2 -> ['final_gate1', 'final_gate3']
+final_gate3 -> ['final_gate2', 'goal']
+Koszt: 11.700000000000001, ścieżka: ['start', 'dist_gate1', 'maze_correct', 'bottleneck1', 'bottleneck2', 'priority_hub', 'conv_priority1', 'conv_priority2', 'final_merge', 'final_gate1', 'final_gate2', 'final_gate3', 'goal']
+
+=== Tura 1 ===
+  D1-dist_gate1
+  D2-dist_gate3
+  Dostarczone: 0/15
+
+=== Tura 2 ===
+  D1-maze_correct
+  D2-maze_loop1
+  D3-dist_gate1
+  D8-dist_gate3
+  Dostarczone: 0/15
+
+=== Tura 3 ===
+  D1-bottleneck1
+  D2-maze_loop2
+  D3-maze_correct
+  D4-dist_gate1
+  D8-maze_loop1
+  D14-dist_gate3
+  Dostarczone: 0/15
+
+=== Tura 4 ===
+  D1-bottleneck2
+  D2-maze_correct
+  D3-bottleneck1
+  D4-maze_correct
+  D5-dist_gate1
+  D8-maze_loop2
+  D14-maze_loop1
+  Dostarczone: 0/15
+
+=== Tura 5 ===
+  D1-priority_hub
+  D2-bottleneck1
+  D3-bottleneck1-overflow1
+  D4-bottleneck1
+  D5-maze_correct
+  D6-dist_gate1
+  D8-maze_correct
+  D14-maze_loop2
+  Dostarczone: 0/15
+
+=== Tura 6 ===
+  D1-conv_priority1
+  D2-bottleneck2
+  D3-bottleneck1-overflow1
+  D5-bottleneck1
+  D6-maze_correct
+  D7-dist_gate1
+  D14-maze_correct
+  Dostarczone: 0/15
+
+=== Tura 7 ===
+  D1-conv_priority2
+  D2-priority_hub
+  D3-overflow1
+  D4-bottleneck2
+  D6-bottleneck1
+  D7-maze_correct
+  D9-dist_gate1
+  Dostarczone: 0/15
+
+=== Tura 8 ===
+  D1-final_merge
+  D2-conv_priority1
+  D3-overflow1-overflow2
+  D4-bottleneck2-overflow2
+  D5-bottleneck2
+  D7-bottleneck1
+  D9-maze_correct
+  D10-dist_gate1
+  Dostarczone: 0/15
+
+=== Tura 9 ===
+  D1-final_gate1
+  D2-conv_priority2
+  D3-overflow1-overflow2
+  D4-bottleneck2-overflow2
+  D5-priority_hub
+  D6-bottleneck2
+  D8-bottleneck1
+  D10-maze_correct
+  D11-dist_gate1
+  Dostarczone: 0/15
+
+=== Tura 10 ===
+  D1-final_gate2
+  D2-final_merge
+  D3-overflow2
+  D4-overflow2
+  D5-priority_correct
+  D6-priority_hub
+  D7-bottleneck2
+  D9-bottleneck1
+  D11-maze_correct
+  D12-dist_gate1
+  Dostarczone: 0/15
+
+=== Tura 11 ===
+  D1-final_gate3
+  D2-final_gate1
+  D3-conv_normal1
+  D5-conv_priority1
+  D6-priority_correct
+  D7-priority_hub
+  D8-bottleneck2
+  D9-bottleneck1-overflow1
+  D10-bottleneck1
+  D11-bottleneck1
+  D12-maze_correct
+  D13-dist_gate1
+  Dostarczone: 0/15
+
+=== Tura 12 ===
+  D1-goal
+  D2-final_gate2
+  D3-conv_normal2
+  D4-conv_normal1
+  D5-conv_priority2
+  D6-conv_normal1
+  D7-conv_priority1
+  D8-priority_hub
+  D9-bottleneck1-overflow1
+  D10-bottleneck2
+  D12-bottleneck1
+  D13-maze_correct
+  D15-dist_gate1
+  Dostarczone: 1/15
+
+=== Tura 13 ===
+  D2-final_gate3
+  D3-final_merge
+  D4-conv_normal2
+  D5-final_merge
+  D7-conv_priority2
+  D8-conv_priority1
+  D9-overflow1
+  D10-bottleneck2-overflow2
+  D11-bottleneck2
+  D13-bottleneck1
+  D15-maze_correct
+  Dostarczone: 1/15
+
+=== Tura 14 ===
+  D2-goal
+  D3-final_gate1
+  D4-final_merge
+  D5-final_gate1
+  D6-conv_normal2
+  D7-final_merge
+  D8-conv_priority2
+  D9-overflow1-overflow2
+  D10-bottleneck2-overflow2
+  D11-priority_hub
+  D12-bottleneck2
+  D14-bottleneck1
+  Dostarczone: 2/15
+
+=== Tura 15 ===
+  D3-final_gate2
+  D4-final_gate1
+  D5-final_gate2
+  D6-final_merge
+  D7-final_gate1
+  D8-final_merge
+  D9-overflow1-overflow2
+  D10-overflow2
+  D11-priority_correct
+  D12-priority_hub
+  D13-bottleneck2
+  D15-bottleneck1
+  Dostarczone: 2/15
+
+=== Tura 16 ===
+  D3-final_gate3
+  D4-final_gate2
+  D6-final_gate1
+  D8-final_gate1
+  D9-overflow2
+  D10-conv_normal1
+  D11-conv_priority1
+  D12-priority_correct
+  D13-priority_hub
+  D14-bottleneck2
+  D15-bottleneck1-overflow1
+  Dostarczone: 2/15
+
+=== Tura 17 ===
+  D3-goal
+  D4-final_gate3
+  D6-final_gate2
+  D9-conv_normal1
+  D10-conv_normal2
+  D11-conv_priority2
+  D12-conv_normal1
+  D13-conv_priority1
+  D14-priority_hub
+  D15-bottleneck1-overflow1
+  Dostarczone: 3/15
+
+=== Tura 18 ===
+  D4-goal
+  D5-final_gate3
+  D7-final_gate2
+  D9-conv_normal2
+  D10-final_merge
+  D11-final_merge
+  D13-conv_priority2
+  D14-conv_priority1
+  D15-overflow1
+  Dostarczone: 4/15
+
+=== Tura 19 ===
+  D5-goal
+  D6-final_gate3
+  D8-final_gate2
+  D9-final_merge
+  D10-final_gate1
+  D11-final_gate1
+  D12-conv_normal2
+  D13-final_merge
+  D14-conv_priority2
+  D15-overflow1-overflow2
+  Dostarczone: 5/15
+
+=== Tura 20 ===
+  D6-goal
+  D7-final_gate3
+  D9-final_gate1
+  D10-final_gate2
+  D12-final_merge
+  D13-final_gate1
+  D14-final_merge
+  D15-overflow1-overflow2
+  Dostarczone: 6/15
+
+=== Tura 21 ===
+  D7-goal
+  D8-final_gate3
+  D9-final_gate2
+  D12-final_gate1
+  D15-overflow2
+  Dostarczone: 7/15
+
+=== Tura 22 ===
+  D8-goal
+  D9-final_gate3
+  D11-final_gate2
+  D14-final_gate1
+  D15-conv_normal1
+  Dostarczone: 8/15
+
+=== Tura 23 ===
+  D9-goal
+  D10-final_gate3
+  D12-final_gate2
+  D15-conv_normal2
+  Dostarczone: 9/15
+
+=== Tura 24 ===
+  D10-goal
+  D11-final_gate3
+  D13-final_gate2
+  D15-final_merge
+  Dostarczone: 10/15
+
+=== Tura 25 ===
+  D11-goal
+  D12-final_gate3
+  D14-final_gate2
+  D15-final_gate1
+  Dostarczone: 11/15
+
+=== Tura 26 ===
+  D12-goal
+  D13-final_gate3
+  D15-final_gate2
+  Dostarczone: 12/15
+
+=== Tura 27 ===
+  D13-goal
+  D14-final_gate3
+  Dostarczone: 13/15
+
+=== Tura 28 ===
+  D14-goal
+  D15-final_gate3
+  Dostarczone: 14/15
+
+=== Tura 29 ===
+  D15-goal
+  Dostarczone: 15/15
+
+
+brak niektorych polaczen
+
+impossible dream
+
+art -> ['gate_hell1']
+impossible_goal -> ['final_torture5']
+gate_hell1 -> ['start', 'gate_hell2', 'maze_trap_a1']
+gate_hell2 -> ['gate_hell1', 'gate_hell3', 'maze_trap_b1']
+gate_hell3 -> ['gate_hell2', 'gate_hell4', 'maze_loop1']
+gate_hell4 -> ['gate_hell3', 'gate_hell5']
+gate_hell5 -> ['gate_hell4', 'micro_gate1']
+maze_trap_a1 -> ['gate_hell1', 'maze_trap_a2']
+maze_trap_a2 -> ['maze_trap_a1', 'maze_trap_a3', 'micro_gate1']
+maze_trap_a3 -> ['maze_trap_a2', 'maze_dead_a']
+maze_dead_a -> ['maze_trap_a3']
+maze_trap_b1 -> ['gate_hell2', 'maze_trap_b2']
+maze_trap_b2 -> ['maze_trap_b1', 'maze_trap_b3', 'micro_gate1']
+maze_trap_b3 -> ['maze_trap_b2', 'maze_dead_b']
+maze_dead_b -> ['maze_trap_b3']
+maze_loop1 -> ['gate_hell3', 'maze_loop2', 'maze_loop6']
+maze_loop2 -> ['maze_loop1', 'maze_loop3']
+maze_loop3 -> ['maze_loop2', 'maze_loop4', 'micro_gate2']
+maze_loop4 -> ['maze_loop3', 'maze_loop5']
+maze_loop5 -> ['maze_loop4', 'maze_loop6']
+maze_loop6 -> ['maze_loop5', 'maze_loop1']
+micro_gate1 -> ['maze_trap_a2', 'maze_trap_b2', 'gate_hell5', 'micro_gate2', 'overflow_hell1', 'overflow_hell4']
+micro_gate2 -> ['maze_loop3', 'micro_gate1', 'micro_gate3', 'overflow_hell2', 'overflow_hell5']
+micro_gate3 -> ['micro_gate2', 'overflow_hell3', 'overflow_hell6', 'false_hope1']
+overflow_hell1 -> ['micro_gate1', 'overflow_hell2', 'conv_restricted1']
+overflow_hell2 -> ['micro_gate2', 'overflow_hell1', 'overflow_hell3']
+overflow_hell3 -> ['micro_gate3', 'overflow_hell2', 'false_hope1']
+overflow_hell4 -> ['micro_gate1', 'overflow_hell5', 'conv_restricted7']
+overflow_hell5 -> ['micro_gate2', 'overflow_hell4', 'overflow_hell6']
+overflow_hell6 -> ['micro_gate3', 'overflow_hell5', 'false_hope1']
+false_hope1 -> ['overflow_hell3', 'overflow_hell6', 'micro_gate3', 'false_hope2', 'priority_trap1', 'priority_trap3']
+false_hope2 -> ['false_hope1', 'false_hope3', 'priority_trap2', 'priority_trap4']
+false_hope3 -> ['false_hope2', 'priority_dead', 'priority_dead2', 'conv_restricted1', 'conv_restricted4', 'conv_restricted7']
+priority_trap1 -> ['false_hope1', 'priority_trap2', 'conv_restricted4']
+priority_trap2 -> ['false_hope2', 'priority_trap1']
+priority_dead -> ['false_hope3']
+priority_trap3 -> ['false_hope1', 'priority_trap4']
+priority_trap4 -> ['false_hope2', 'priority_trap3']
+priority_dead2 -> ['false_hope3']
+conv_restricted1 -> ['false_hope3', 'conv_restricted2', 'overflow_hell1']
+conv_restricted2 -> ['conv_restricted1', 'conv_restricted3']
+conv_restricted3 -> ['conv_restricted2', 'final_merge']
+conv_restricted4 -> ['false_hope3', 'conv_restricted5', 'priority_trap1']
+conv_restricted5 -> ['conv_restricted4', 'conv_restricted6']
+conv_restricted6 -> ['conv_restricted5', 'final_merge']
+conv_restricted7 -> ['false_hope3', 'conv_restricted8', 'overflow_hell4']
+conv_restricted8 -> ['conv_restricted7', 'conv_restricted9']
+conv_restricted9 -> ['conv_restricted8', 'final_merge']
+final_merge -> ['conv_restricted3', 'conv_restricted6', 'conv_restricted9', 'final_torture1']
+final_torture1 -> ['final_merge', 'final_torture2']
+final_torture2 -> ['final_torture1', 'final_torture3']
+final_torture3 -> ['final_torture2', 'final_torture4']
+final_torture4 -> ['final_torture3', 'final_torture5']
+final_torture5 -> ['final_torture4', 'impossible_goal']
+Koszt: 19.0, ścieżka: ['start', 'gate_hell1', 'maze_trap_a1', 'maze_trap_a2', 'micro_gate1', 'overflow_hell1', 'conv_restricted1', 'conv_restricted2', 'conv_restricted3', 'final_merge', 'final_torture1', 'final_torture2', 'final_torture3', 'final_torture4', 'final_torture5', 'impossible_goal']
+
+=== Tura 1 ===
+  D1-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 2 ===
+  D1-maze_trap_a1
+  D2-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 3 ===
+  D1-maze_trap_a2
+  D2-gate_hell2
+  D3-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 4 ===
+  D1-micro_gate1
+  D2-maze_trap_b1
+  D3-maze_trap_a1
+  D4-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 5 ===
+  D1-micro_gate1-overflow_hell1
+  D2-maze_trap_b2
+  D3-maze_trap_a2
+  D4-maze_trap_a1
+  D5-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 6 ===
+  D1-micro_gate1-overflow_hell1
+  D2-micro_gate1
+  D5-gate_hell2
+  D6-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 7 ===
+  D1-overflow_hell1
+  D2-micro_gate1-overflow_hell1
+  D3-micro_gate1
+  D4-maze_trap_a2
+  D5-maze_trap_b1
+  D6-maze_trap_a1
+  D7-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 8 ===
+  D1-overflow_hell1-conv_restricted1
+  D2-micro_gate1-overflow_hell1
+  D3-micro_gate1-overflow_hell4
+  D4-micro_gate1
+  D5-maze_trap_b2
+  D6-maze_trap_a2
+  D7-maze_trap_a1
+  D8-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 9 ===
+  D1-overflow_hell1-conv_restricted1
+  D2-overflow_hell1
+  D3-micro_gate1-overflow_hell4
+  D4-micro_gate1-overflow_hell1
+  D5-micro_gate1
+  D8-gate_hell2
+  D9-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 10 ===
+  D1-conv_restricted1
+  D3-overflow_hell4
+  D4-micro_gate1-overflow_hell1
+  D8-maze_trap_b1
+  Dostarczone: 0/25
+
+=== Tura 11 ===
+  D1-conv_restricted1-conv_restricted2
+  D2-overflow_hell1-conv_restricted1
+  D3-overflow_hell4-conv_restricted7
+  D4-overflow_hell1
+  D5-micro_gate1-overflow_hell1
+  D6-micro_gate1
+  D7-maze_trap_a2
+  D8-maze_trap_b2
+  D9-maze_trap_a1
+  D10-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 12 ===
+  D1-conv_restricted1-conv_restricted2
+  D2-overflow_hell1-conv_restricted1
+  D3-overflow_hell4-conv_restricted7
+  D5-micro_gate1-overflow_hell1
+  D6-micro_gate1-overflow_hell4
+  D7-micro_gate1
+  D9-maze_trap_a2
+  D10-maze_trap_a1
+  D11-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 13 ===
+  D1-conv_restricted2
+  D2-conv_restricted1
+  D3-conv_restricted7
+  D5-overflow_hell1
+  D6-micro_gate1-overflow_hell4
+  D11-gate_hell2
+  D12-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 14 ===
+  D1-conv_restricted2-conv_restricted3
+  D2-conv_restricted1-conv_restricted2
+  D3-conv_restricted7-conv_restricted8
+  D4-overflow_hell1-conv_restricted1
+  D6-overflow_hell4
+  D7-micro_gate1-overflow_hell1
+  D8-micro_gate1
+  D11-maze_trap_b1
+  Dostarczone: 0/25
+
+=== Tura 15 ===
+  D1-conv_restricted2-conv_restricted3
+  D2-conv_restricted1-conv_restricted2
+  D3-conv_restricted7-conv_restricted8
+  D4-overflow_hell1-conv_restricted1
+  D6-overflow_hell4-conv_restricted7
+  D7-micro_gate1-overflow_hell1
+  D11-maze_trap_b2
+  Dostarczone: 0/25
+
+=== Tura 16 ===
+  D1-conv_restricted3
+  D2-conv_restricted2
+  D3-conv_restricted8
+  D4-conv_restricted1
+  D6-overflow_hell4-conv_restricted7
+  D7-overflow_hell1
+  Dostarczone: 0/25
+
+=== Tura 17 ===
+  D1-final_merge
+  D2-conv_restricted2-conv_restricted3
+  D3-conv_restricted8-conv_restricted9
+  D4-conv_restricted1-conv_restricted2
+  D5-overflow_hell1-conv_restricted1
+  D6-conv_restricted7
+  D8-micro_gate1-overflow_hell1
+  D9-micro_gate1
+  D10-maze_trap_a2
+  D12-maze_trap_a1
+  D13-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 18 ===
+  D1-final_torture1
+  D2-conv_restricted2-conv_restricted3
+  D3-conv_restricted8-conv_restricted9
+  D4-conv_restricted1-conv_restricted2
+  D5-overflow_hell1-conv_restricted1
+  D6-conv_restricted7-conv_restricted8
+  D8-micro_gate1-overflow_hell1
+  D9-micro_gate1-overflow_hell4
+  D10-micro_gate1
+  D12-maze_trap_a2
+  D13-maze_trap_a1
+  D14-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 19 ===
+  D1-final_torture2
+  D2-conv_restricted3
+  D3-conv_restricted9
+  D4-conv_restricted2
+  D5-conv_restricted1
+  D6-conv_restricted7-conv_restricted8
+  D8-overflow_hell1
+  D9-micro_gate1-overflow_hell4
+  D14-gate_hell2
+  D15-gate_hell1
+  Dostarczone: 0/25
+
+=== Tura 20 ===
+  D1-final_torture3
+  D2-final_merge
+  D3-final_merge
+  D4-conv_restricted2-conv_restricted3
+  D5-conv_restricted1-conv_restricted2
+  D6-conv_restricted8
+  D7-overflow_hell1-conv_restricted1
+  D9-overflow_hell4
+  D10-micro_gate1-overflow_hell1
+  D11-micro_gate1
+  D14-maze_trap_b1
+  Dostarczone: 0/25
+
+=== Tura 21 ===
+  D1-final_torture4
+  D2-final_torture1
+  D4-conv_restricted2-conv_restricted3
+  D5-conv_restricted1-conv_restricted2
+  D6-conv_restricted8-conv_restricted9
+  D7-overflow_hell1-conv_restricted1
+  D9-overflow_hell4-conv_restricted7
+  D10-micro_gate1-overflow_hell1
+  D14-maze_trap_b2
+  Dostarczone: 0/25
+
+=== Tura 22 ===
+  D1-final_torture5
+  D2-final_torture2
+  D3-final_torture1
+  D4-conv_restricted3
+  D5-conv_restricted2
+  D6-conv_restricted8-conv_restricted9
+  D7-conv_restricted1
+  D9-overflow_hell4-conv_restricted7
+  D10-overflow_hell1
+  Dostarczone: 0/25
+
+=== Tura 23 ===
+  D1-impossible_goal
+  D2-final_torture3
+  D3-final_torture2
+  D4-final_merge
+  D5-conv_restricted2-conv_restricted3
+  D6-conv_restricted9
+  D7-conv_restricted1-conv_restricted2
+  D8-overflow_hell1-conv_restricted1
+  D9-conv_restricted7
+  D11-micro_gate1-overflow_hell1
+  D12-micro_gate1
+  D13-maze_trap_a2
+  D15-maze_trap_a1
+  D16-gate_hell1
+  Dostarczone: 1/25
+
+=== Tura 24 ===
+  D2-final_torture4
+  D3-final_torture3
+  D4-final_torture1
+  D5-conv_restricted2-conv_restricted3
+  D6-final_merge
+  D7-conv_restricted1-conv_restricted2
+  D8-overflow_hell1-conv_restricted1
+  D9-conv_restricted7-conv_restricted8
+  D11-micro_gate1-overflow_hell1
+  D12-micro_gate1-overflow_hell4
+  D13-micro_gate1
+  D15-maze_trap_a2
+  D16-maze_trap_a1
+  D17-gate_hell1
+  Dostarczone: 1/25
+
+=== Tura 25 ===
+  D2-final_torture5
+  D3-final_torture4
+  D4-final_torture2
+  D5-conv_restricted3
+  D6-final_torture1
+  D7-conv_restricted2
+  D8-conv_restricted1
+  D9-conv_restricted7-conv_restricted8
+  D11-overflow_hell1
+  D12-micro_gate1-overflow_hell4
+  D17-gate_hell2
+  D18-gate_hell1
+  Dostarczone: 1/25
+
+=== Tura 26 ===
+  D2-impossible_goal
+  D3-final_torture5
+  D4-final_torture3
+  D5-final_merge
+  D6-final_torture2
+  D7-conv_restricted2-conv_restricted3
+  D8-conv_restricted1-conv_restricted2
+  D9-conv_restricted8
+  D10-overflow_hell1-conv_restricted1
+  D12-overflow_hell4
+  D13-micro_gate1-overflow_hell1
+  D14-micro_gate1
+  D17-maze_trap_b1
+  Dostarczone: 2/25
+
+=== Tura 27 ===
+  D3-impossible_goal
+  D4-final_torture4
+  D5-final_torture1
+  D6-final_torture3
+  D7-conv_restricted2-conv_restricted3
+  D8-conv_restricted1-conv_restricted2
+  D9-conv_restricted8-conv_restricted9
+  D10-overflow_hell1-conv_restricted1
+  D12-overflow_hell4-conv_restricted7
+  D13-micro_gate1-overflow_hell1
+  D17-maze_trap_b2
+  Dostarczone: 3/25
+
+=== Tura 28 ===
+  D4-final_torture5
+  D5-final_torture2
+  D6-final_torture4
+  D7-conv_restricted3
+  D8-conv_restricted2
+  D9-conv_restricted8-conv_restricted9
+  D10-conv_restricted1
+  D12-overflow_hell4-conv_restricted7
+  D13-overflow_hell1
+  Dostarczone: 3/25
+
+=== Tura 29 ===
+  D4-impossible_goal
+  D5-final_torture3
+  D6-final_torture5
+  D7-final_merge
+  D8-conv_restricted2-conv_restricted3
+  D9-conv_restricted9
+  D10-conv_restricted1-conv_restricted2
+  D11-overflow_hell1-conv_restricted1
+  D12-conv_restricted7
+  D14-micro_gate1-overflow_hell1
+  D15-micro_gate1
+  D16-maze_trap_a2
+  D18-maze_trap_a1
+  D19-gate_hell1
+  Dostarczone: 4/25
+
+=== Tura 30 ===
+  D5-final_torture4
+  D6-impossible_goal
+  D7-final_torture1
+  D8-conv_restricted2-conv_restricted3
+  D9-final_merge
+  D10-conv_restricted1-conv_restricted2
+  D11-overflow_hell1-conv_restricted1
+  D12-conv_restricted7-conv_restricted8
+  D14-micro_gate1-overflow_hell1
+  D15-micro_gate1-overflow_hell4
+  D16-micro_gate1
+  D18-maze_trap_a2
+  D19-maze_trap_a1
+  D20-gate_hell1
+  Dostarczone: 5/25
+
+=== Tura 31 ===
+  D5-final_torture5
+  D7-final_torture2
+  D8-conv_restricted3
+  D9-final_torture1
+  D10-conv_restricted2
+  D11-conv_restricted1
+  D12-conv_restricted7-conv_restricted8
+  D14-overflow_hell1
+  D15-micro_gate1-overflow_hell4
+  D20-gate_hell2
+  D21-gate_hell1
+  Dostarczone: 5/25
+
+=== Tura 32 ===
+  D5-impossible_goal
+  D7-final_torture3
+  D8-final_merge
+  D9-final_torture2
+  D10-conv_restricted2-conv_restricted3
+  D11-conv_restricted1-conv_restricted2
+  D12-conv_restricted8
+  D13-overflow_hell1-conv_restricted1
+  D15-overflow_hell4
+  D16-micro_gate1-overflow_hell1
+  D17-micro_gate1
+  D20-maze_trap_b1
+  Dostarczone: 6/25
+
+=== Tura 33 ===
+  D7-final_torture4
+  D8-final_torture1
+  D9-final_torture3
+  D10-conv_restricted2-conv_restricted3
+  D11-conv_restricted1-conv_restricted2
+  D12-conv_restricted8-conv_restricted9
+  D13-overflow_hell1-conv_restricted1
+  D15-overflow_hell4-conv_restricted7
+  D16-micro_gate1-overflow_hell1
+  D20-maze_trap_b2
+  Dostarczone: 6/25
+
+=== Tura 34 ===
+  D7-final_torture5
+  D8-final_torture2
+  D9-final_torture4
+  D10-conv_restricted3
+  D11-conv_restricted2
+  D12-conv_restricted8-conv_restricted9
+  D13-conv_restricted1
+  D15-overflow_hell4-conv_restricted7
+  D16-overflow_hell1
+  Dostarczone: 6/25
+
+=== Tura 35 ===
+  D7-impossible_goal
+  D8-final_torture3
+  D9-final_torture5
+  D10-final_merge
+  D11-conv_restricted2-conv_restricted3
+  D12-conv_restricted9
+  D13-conv_restricted1-conv_restricted2
+  D14-overflow_hell1-conv_restricted1
+  D15-conv_restricted7
+  D17-micro_gate1-overflow_hell1
+  D18-micro_gate1
+  D19-maze_trap_a2
+  D21-maze_trap_a1
+  D22-gate_hell1
+  Dostarczone: 7/25
+
+=== Tura 36 ===
+  D8-final_torture4
+  D9-impossible_goal
+  D10-final_torture1
+  D11-conv_restricted2-conv_restricted3
+  D12-final_merge
+  D13-conv_restricted1-conv_restricted2
+  D14-overflow_hell1-conv_restricted1
+  D15-conv_restricted7-conv_restricted8
+  D17-micro_gate1-overflow_hell1
+  D18-micro_gate1-overflow_hell4
+  D19-micro_gate1
+  D21-maze_trap_a2
+  D22-maze_trap_a1
+  D23-gate_hell1
+  Dostarczone: 8/25
+
+=== Tura 37 ===
+  D8-final_torture5
+  D10-final_torture2
+  D11-conv_restricted3
+  D12-final_torture1
+  D13-conv_restricted2
+  D14-conv_restricted1
+  D15-conv_restricted7-conv_restricted8
+  D17-overflow_hell1
+  D18-micro_gate1-overflow_hell4
+  D23-gate_hell2
+  D24-gate_hell1
+  Dostarczone: 8/25
+
+=== Tura 38 ===
+  D8-impossible_goal
+  D10-final_torture3
+  D11-final_merge
+  D12-final_torture2
+  D13-conv_restricted2-conv_restricted3
+  D14-conv_restricted1-conv_restricted2
+  D15-conv_restricted8
+  D16-overflow_hell1-conv_restricted1
+  D18-overflow_hell4
+  D19-micro_gate1-overflow_hell1
+  D20-micro_gate1
+  D23-maze_trap_b1
+  Dostarczone: 9/25
+
+=== Tura 39 ===
+  D10-final_torture4
+  D11-final_torture1
+  D12-final_torture3
+  D13-conv_restricted2-conv_restricted3
+  D14-conv_restricted1-conv_restricted2
+  D15-conv_restricted8-conv_restricted9
+  D16-overflow_hell1-conv_restricted1
+  D18-overflow_hell4-conv_restricted7
+  D19-micro_gate1-overflow_hell1
+  D23-maze_trap_b2
+  Dostarczone: 9/25
+
+=== Tura 40 ===
+  D10-final_torture5
+  D11-final_torture2
+  D12-final_torture4
+  D13-conv_restricted3
+  D14-conv_restricted2
+  D15-conv_restricted8-conv_restricted9
+  D16-conv_restricted1
+  D18-overflow_hell4-conv_restricted7
+  D19-overflow_hell1
+  Dostarczone: 9/25
+
+=== Tura 41 ===
+  D10-impossible_goal
+  D11-final_torture3
+  D12-final_torture5
+  D13-final_merge
+  D14-conv_restricted2-conv_restricted3
+  D15-conv_restricted9
+  D16-conv_restricted1-conv_restricted2
+  D17-overflow_hell1-conv_restricted1
+  D18-conv_restricted7
+  D20-micro_gate1-overflow_hell1
+  D21-micro_gate1
+  D22-maze_trap_a2
+  D24-maze_trap_a1
+  D25-gate_hell1
+  Dostarczone: 10/25
+
+=== Tura 42 ===
+  D11-final_torture4
+  D12-impossible_goal
+  D13-final_torture1
+  D14-conv_restricted2-conv_restricted3
+  D15-final_merge
+  D16-conv_restricted1-conv_restricted2
+  D17-overflow_hell1-conv_restricted1
+  D18-conv_restricted7-conv_restricted8
+  D20-micro_gate1-overflow_hell1
+  D21-micro_gate1-overflow_hell4
+  D22-micro_gate1
+  D24-maze_trap_a2
+  D25-maze_trap_a1
+  Dostarczone: 11/25
+
+=== Tura 43 ===
+  D11-final_torture5
+  D13-final_torture2
+  D14-conv_restricted3
+  D15-final_torture1
+  D16-conv_restricted2
+  D17-conv_restricted1
+  D18-conv_restricted7-conv_restricted8
+  D20-overflow_hell1
+  D21-micro_gate1-overflow_hell4
+  Dostarczone: 11/25
+
+=== Tura 44 ===
+  D11-impossible_goal
+  D13-final_torture3
+  D14-final_merge
+  D15-final_torture2
+  D16-conv_restricted2-conv_restricted3
+  D17-conv_restricted1-conv_restricted2
+  D18-conv_restricted8
+  D19-overflow_hell1-conv_restricted1
+  D21-overflow_hell4
+  D22-micro_gate1-overflow_hell1
+  D23-micro_gate1
+  Dostarczone: 12/25
+
+=== Tura 45 ===
+  D13-final_torture4
+  D14-final_torture1
+  D15-final_torture3
+  D16-conv_restricted2-conv_restricted3
+  D17-conv_restricted1-conv_restricted2
+  D18-conv_restricted8-conv_restricted9
+  D19-overflow_hell1-conv_restricted1
+  D21-overflow_hell4-conv_restricted7
+  D22-micro_gate1-overflow_hell1
+  Dostarczone: 12/25
+
+=== Tura 46 ===
+  D13-final_torture5
+  D14-final_torture2
+  D15-final_torture4
+  D16-conv_restricted3
+  D17-conv_restricted2
+  D18-conv_restricted8-conv_restricted9
+  D19-conv_restricted1
+  D21-overflow_hell4-conv_restricted7
+  D22-overflow_hell1
+  Dostarczone: 12/25
+
+=== Tura 47 ===
+  D13-impossible_goal
+  D14-final_torture3
+  D15-final_torture5
+  D16-final_merge
+  D17-conv_restricted2-conv_restricted3
+  D18-conv_restricted9
+  D19-conv_restricted1-conv_restricted2
+  D20-overflow_hell1-conv_restricted1
+  D21-conv_restricted7
+  D23-micro_gate1-overflow_hell1
+  D24-micro_gate1
+  D25-maze_trap_a2
+  Dostarczone: 13/25
+
+=== Tura 48 ===
+  D14-final_torture4
+  D15-impossible_goal
+  D16-final_torture1
+  D17-conv_restricted2-conv_restricted3
+  D18-final_merge
+  D19-conv_restricted1-conv_restricted2
+  D20-overflow_hell1-conv_restricted1
+  D21-conv_restricted7-conv_restricted8
+  D23-micro_gate1-overflow_hell1
+  D24-micro_gate1-overflow_hell4
+  D25-micro_gate1
+  Dostarczone: 14/25
+
+=== Tura 49 ===
+  D14-final_torture5
+  D16-final_torture2
+  D17-conv_restricted3
+  D18-final_torture1
+  D19-conv_restricted2
+  D20-conv_restricted1
+  D21-conv_restricted7-conv_restricted8
+  D23-overflow_hell1
+  D24-micro_gate1-overflow_hell4
+  Dostarczone: 14/25
+
+=== Tura 50 ===
+  D14-impossible_goal
+  D16-final_torture3
+  D17-final_merge
+  D18-final_torture2
+  D19-conv_restricted2-conv_restricted3
+  D20-conv_restricted1-conv_restricted2
+  D21-conv_restricted8
+  D22-overflow_hell1-conv_restricted1
+  D24-overflow_hell4
+  D25-micro_gate1-overflow_hell1
+  Dostarczone: 15/25
+
+=== Tura 51 ===
+  D16-final_torture4
+  D17-final_torture1
+  D18-final_torture3
+  D19-conv_restricted2-conv_restricted3
+  D20-conv_restricted1-conv_restricted2
+  D21-conv_restricted8-conv_restricted9
+  D22-overflow_hell1-conv_restricted1
+  D24-overflow_hell4-conv_restricted7
+  D25-micro_gate1-overflow_hell1
+  Dostarczone: 15/25
+
+=== Tura 52 ===
+  D16-final_torture5
+  D17-final_torture2
+  D18-final_torture4
+  D19-conv_restricted3
+  D20-conv_restricted2
+  D21-conv_restricted8-conv_restricted9
+  D22-conv_restricted1
+  D24-overflow_hell4-conv_restricted7
+  D25-overflow_hell1
+  Dostarczone: 15/25
+
+=== Tura 53 ===
+  D16-impossible_goal
+  D17-final_torture3
+  D18-final_torture5
+  D19-final_merge
+  D20-conv_restricted2-conv_restricted3
+  D21-conv_restricted9
+  D22-conv_restricted1-conv_restricted2
+  D23-overflow_hell1-conv_restricted1
+  D24-conv_restricted7
+  Dostarczone: 16/25
+
+=== Tura 54 ===
+  D17-final_torture4
+  D18-impossible_goal
+  D19-final_torture1
+  D20-conv_restricted2-conv_restricted3
+  D21-final_merge
+  D22-conv_restricted1-conv_restricted2
+  D23-overflow_hell1-conv_restricted1
+  D24-conv_restricted7-conv_restricted8
+  Dostarczone: 17/25
+
+=== Tura 55 ===
+  D17-final_torture5
+  D19-final_torture2
+  D20-conv_restricted3
+  D21-final_torture1
+  D22-conv_restricted2
+  D23-conv_restricted1
+  D24-conv_restricted7-conv_restricted8
+  Dostarczone: 17/25
+
+=== Tura 56 ===
+  D17-impossible_goal
+  D19-final_torture3
+  D20-final_merge
+  D21-final_torture2
+  D22-conv_restricted2-conv_restricted3
+  D23-conv_restricted1-conv_restricted2
+  D24-conv_restricted8
+  D25-overflow_hell1-conv_restricted1
+  Dostarczone: 18/25
+
+=== Tura 57 ===
+  D19-final_torture4
+  D20-final_torture1
+  D21-final_torture3
+  D22-conv_restricted2-conv_restricted3
+  D23-conv_restricted1-conv_restricted2
+  D24-conv_restricted8-conv_restricted9
+  D25-overflow_hell1-conv_restricted1
+  Dostarczone: 18/25
+
+=== Tura 58 ===
+  D19-final_torture5
+  D20-final_torture2
+  D21-final_torture4
+  D22-conv_restricted3
+  D23-conv_restricted2
+  D24-conv_restricted8-conv_restricted9
+  D25-conv_restricted1
+  Dostarczone: 18/25
+
+=== Tura 59 ===
+  D19-impossible_goal
+  D20-final_torture3
+  D21-final_torture5
+  D22-final_merge
+  D23-conv_restricted2-conv_restricted3
+  D24-conv_restricted9
+  D25-conv_restricted1-conv_restricted2
+  Dostarczone: 19/25
+
+=== Tura 60 ===
+  D20-final_torture4
+  D21-impossible_goal
+  D22-final_torture1
+  D23-conv_restricted2-conv_restricted3
+  D24-final_merge
+  D25-conv_restricted1-conv_restricted2
+  Dostarczone: 20/25
+
+=== Tura 61 ===
+  D20-final_torture5
+  D22-final_torture2
+  D23-conv_restricted3
+  D24-final_torture1
+  D25-conv_restricted2
+  Dostarczone: 20/25
+
+=== Tura 62 ===
+  D20-impossible_goal
+  D22-final_torture3
+  D23-final_merge
+  D24-final_torture2
+  D25-conv_restricted2-conv_restricted3
+  Dostarczone: 21/25
+
+=== Tura 63 ===
+  D22-final_torture4
+  D23-final_torture1
+  D24-final_torture3
+  D25-conv_restricted2-conv_restricted3
+  Dostarczone: 21/25
+
+=== Tura 64 ===
+  D22-final_torture5
+  D23-final_torture2
+  D24-final_torture4
+  D25-conv_restricted3
+  Dostarczone: 21/25
+
+=== Tura 65 ===
+  D22-impossible_goal
+  D23-final_torture3
+  D24-final_torture5
+  D25-final_merge
+  Dostarczone: 22/25
+
+=== Tura 66 ===
+  D23-final_torture4
+  D24-impossible_goal
+  D25-final_torture1
+  Dostarczone: 23/25
+
+=== Tura 67 ===
+  D23-final_torture5
+  D25-final_torture2
+  Dostarczone: 23/25
+
+=== Tura 68 ===
+  D23-impossible_goal
+  D25-final_torture3
+  Dostarczone: 24/25
+
+=== Tura 69 ===
+  D25-final_torture4
+  Dostarczone: 24/25
+
+=== Tura 70 ===
+  D25-final_torture5
+  Dostarczone: 24/25
+
+=== Tura 71 ===
+  D25-impossible_goal
+  Dostarczone: 25/25
+
+
+brak niektorych hubow i polaczen
